@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html lang="ja">
+  <head>
+      <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+      <meta name='author' content='takuki matsuda'>
+      <title>Grepper《グレッパー》</title>
+      <link rel="stylesheet" type="text/css" href="/static/style.css">
+      <script>
+        function detectLines() {
+          var text = document.getElementById('sequenceA').value;
+          var keyword = document.getElementById('sequenceB').value;
+          var lines = text.split('\n');
+          var matchingLines = lines.filter(line => line.includes(keyword));
+          document.getElementById('results').innerText = matchingLines.join('\n');
+          return false; // Prevent form from submitting
+        }
+      </script>
+  </head>
+
+  <body>
+    <div id="top">
+      <h1>
+        <a class="link-k" href='/'>Grepper《グレッパー》</a>
+      </h1>
+      <span class="version">ver.1.0</span>
+      &emsp;
+      <span class="language-switcher">
+        <a href='https://sample.jp/en/'>English</a> | Japanese
+      </span>
+      <span class="blog">
+         <a href='/blog'>| blog</a>
+      </span>
+      <hr>
+    </div>

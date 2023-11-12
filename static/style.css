@@ -1,0 +1,74 @@
+#top {
+  border-top: 5px solid #C77EB5;
+  padding-top: 10px;
+}
+
+h1 {
+  font-size: 2em; /* 5号サイズに相当 */
+  margin: 0;
+}
+
+.link-k {
+  /* クラス'k'に適用されるスタイルをここに追加します */
+}
+
+.version {
+  font-size: 1.5em; /* 3号サイズに相当 */
+  vertical-align: middle;
+}
+
+.language-switcher,
+.old-version {
+  font-size: 0.75em; /* 1号サイズに相当 */
+  vertical-align: middle;
+}
+#top {
+  /* Top div styles */
+}
+
+.link-k {
+  /* Link styles */
+}
+
+.version {
+  /* Version number styles */
+}
+
+.language-switcher {
+  /* Language switcher styles */
+}
+
+#form {
+  /* Form styles */
+}
+
+#form .n {
+  /* Styles for the cells in the form */
+}
+
+#form textarea {
+  width: 100%; /* テキストエリアの幅を親要素の100%に設定 */
+}
+
+#form textarea#sequenceB {
+  width: 360px; /* キーワード用テキストエリアの幅を自動に設定 */
+
+}
+
+
+#form input[type="submit"] {
+  /* Submit button styles */
+}
+
+#news {
+  /* News section styles */
+}
+
+.modified-info {
+  color: gray;
+  /* Other styles for modified info */
+}
+
+.blog {
+  font-size: 0.75em;
+}

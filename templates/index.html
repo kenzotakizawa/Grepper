@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html lang="ja">
+  <head>
+      <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+      <meta name='author' content='takuki matsuda'>
+      <title>Grepper《グレッパー》</title>
+      <link rel="stylesheet" type="text/css" href="/static/style.css">
+      <script>
+        function detectLines() {
+          var text = document.getElementById('sequenceA').value;
+          var keyword = document.getElementById('sequenceB').value;
+          var lines = text.split('\n');
+          var matchingLines = lines.filter(line => line.includes(keyword));
+          document.getElementById('results').innerText = matchingLines.join('\n');
+          return false; // Prevent form from submitting
+        }
+      </script>
+  </head>
+
+  <body>
+    <div id="top">
+      <h1>
+        <a class="link-k" href='/'>Grepper《グレッパー》</a>
+      </h1>
+      <span class="version">ver.1.0</span>
+      &emsp;
+      <span class="language-switcher">
+        <a href='https://sample.jp/en/'>English</a> | Japanese
+      </span>
+      <span class="blog">
+         <a href='/blog'>| blog</a>
+      </span>
+      <hr>
+    </div>
+
+    <div id="form">
+      <p>原文を以下のテキストフィールドにコピーしてください。</p>
+      <p>検出処理はクライアント側(あなたのPC内)で行われるので、原文が外部に漏れる心配はありません。</p>
+      <textarea name="sequenceA" id="sequenceA" rows="20" placeholder="文章全体をコピーしてください。"></textarea>
+
+      <p>検出したいキーワードを以下に入力してください。</p>
+      <textarea name="sequenceB" id="sequenceB" rows="1" placeholder="検出したいキーワードを入力してください。"></textarea>
+    
+      <p><input type="submit" value="検出する" onclick="return detectLines();"></p>
+    </div>
+
+    <div id="results" style="white-space: pre;">
+      <!-- 結果を表示する場所 -->
+    </div>
+
+    <hr>
+
+    <div id="news">
+      <p>新着情報：</p>
+      <ul>
+        <li>2023-11-12　初代 Greppper 完成 (ver.1)</li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <p class="modified-info">Last modified on Nov 28, 2023 by
+      <a target='_blank' href='http://twitter.com/MackeyPhotos'>@MackeyPhotos</a>
+    </p>
+
+    <!-- 他のHTMLコンテンツ -->
+  </body>
+</html>
