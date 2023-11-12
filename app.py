@@ -10,6 +10,11 @@ def blog():
 def home():
     return render_template('index.html')
 
+# 英語版ページへのルート
+@app.route('/en')
+def home_en():
+    return render_template('index_en.html')
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     results = ""

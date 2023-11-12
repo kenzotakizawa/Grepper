@@ -1,9 +1,9 @@
 <!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
-<html lang="ja">
+<html lang="en">
   <head>
       <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
-      <meta name='author' content='takuki matsuda'>
-      <title>Grepper《グレッパー》</title>
+      <meta name='author' content='Takuki Matsuda'>
+      <title>Grepper</title>
       <link rel="stylesheet" type="text/css" href="/static/style.css">
       <script>
         function detectLines() {
@@ -20,13 +20,13 @@
   <body>
     <div id="top">
       <h1>
-        <a class="link-k" href='/'>Grepper《グレッパー》</a>
+        <a class="link-k" href='/'>Grepper</a>
       </h1>
       <span class="version">ver.1.0</span>
       &emsp;
       <span class="language-switcher">
-        <a href='/en'>English</a> | Japanese
-      </span>      
+        English | <a href='/'>Japanese</a> <!-- 日本語版へのリンクを更新 -->
+      </span>
       <span class="blog">
          <a href='/blog'>| blog</a>
       </span>
@@ -34,35 +34,35 @@
     </div>
 
     <div id="form">
-      <p>原文を以下のテキストフィールドにコピーしてください。</p>
-      <p>検出処理はクライアント側(あなたのPC内)で行われるので、原文が外部に漏れる心配はありません。</p>
-      <textarea name="sequenceA" id="sequenceA" rows="20" placeholder="文章全体をコピーしてください。"></textarea>
-
-      <p>検出したいキーワードを以下に入力してください。</p>
-      <textarea name="sequenceB" id="sequenceB" rows="1" placeholder="検出したいキーワードを入力してください。"></textarea>
+      <p>Please copy the original text into the text field below.</p>
+      <p>The detection process is carried out on the client-side (inside your PC), so there is no worry about the original text being leaked externally.</p>
+      <textarea name="sequenceA" id="sequenceA" rows="20" placeholder="Please copy the entire text here."></textarea>
     
-      <p><input type="submit" value="検出する" onclick="return detectLines();"></p>
+      <p>Please enter the keyword you want to detect below.</p>
+      <textarea name="sequenceB" id="sequenceB" rows="1" placeholder="Enter the keyword you want to detect."></textarea>
+    
+      <p><input type="submit" value="Detect" onclick="return detectLines();"></p>
     </div>
-
+    
     <div id="results" style="white-space: pre;">
-      <!-- 結果を表示する場所 -->
+      <!-- Area to display results -->
     </div>
-
+    
     <hr>
-
+    
     <div id="news">
-      <p>新着情報：</p>
+      <p>Latest News:</p>
       <ul>
-        <li>2023-11-12　初代 Greppper 完成 (ver.1)</li>
+        <li>2023-11-12　First version of Grepper completed (ver.1)</li>
       </ul>
     </div>
-
+    
     <hr>
-
+    
     <p class="modified-info">Last modified on Nov 28, 2023 by
       <a target='_blank' href='http://twitter.com/MackeyPhotos'>@MackeyPhotos</a>
     </p>
-
-    <!-- 他のHTMLコンテンツ -->
+    
+    <!-- Other HTML content -->
   </body>
 </html>
