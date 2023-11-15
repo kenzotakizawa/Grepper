@@ -8,7 +8,15 @@ function detectLines() {
     var keywords = Array.from(document.getElementsByName('sequenceB')).map(el => el.value);
     var lines = text.split('\n');
     var matchingLines = lines.filter(line => keywords.some(keyword => line.includes(keyword)));
-    document.getElementById('results').innerText = matchingLines.join('\n');     
+    var highlightedLines = matchingLines.map(line => {
+      var highlightedLine = line;
+      keywords.forEach(keyword => {
+        var highlightedKeyword = '<span style="background-color: #FBB161;">' + keyword + '</span>';
+        highlightedLine = highlightedLine.replace(new RegExp(keyword, 'g'), highlightedKeyword);
+      });
+      return highlightedLine;
+    });
+    document.getElementById('results').innerHTML = highlightedLines.join('\n');
     // ステータスバーを非表示にする
     document.getElementById('statusBar').style.display = 'none';
   }, 0); // 0ミリ秒後に関数を実行
