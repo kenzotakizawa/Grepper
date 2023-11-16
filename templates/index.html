@@ -6,25 +6,6 @@
       <title>Grepper《グレッパー》</title>
       <link rel="stylesheet" type="text/css" href="/static/style.css">
       <script src="static/script.js"></script>
-      <!-- 
-        <script>
-          // 検出処理を行う関数
-          function detectLines() {
-            // 入力されたテキストを取得
-            var text = document.getElementById('sequenceA').value;
-            // 入力されたキーワードを取得
-            var keywords = Array.from(document.getElementsByName('sequenceB')).map(el => el.value);
-            // テキストを行ごとに分割
-            var lines = text.split('\n');
-            // キーワードが含まれる行を抽出
-            var matchingLines = lines.filter(line => keywords.some(keyword => line.includes(keyword)));
-            // 結果を表示
-            document.getElementById('results').innerText = matchingLines.join('\n');
-            // フォームの送信を防ぐ
-            return false; 
-          }
-        </script>
-      他のHTMLコンテンツ -->
   </head>
 
   <body>
@@ -52,45 +33,12 @@
       <div id="keywords">
         <textarea name="sequenceB" id="sequenceB" rows="1" placeholder="検出したいキーワードを入力してください。"></textarea>
       </div>
-      <button onclick="addKeywordField()">＋</button>
-      <!--
-        <script>
-          function addKeywordField() {
-            var keywordsDiv = document.getElementById('keywords'); // キーワードのdivを取得
-            var newKeywordField = document.createElement('textarea'); // 新しいtextarea要素を作成
-            newKeywordField.name = 'sequenceB'; // 新しい要素の名前を設定
-            newKeywordField.rows = '1'; // 新しい要素の行数を設定
-            newKeywordField.placeholder = '検出したいキーワードを入力してください。'; // 新しい要素のプレースホルダーを設定
-            keywordsDiv.appendChild(newKeywordField); // 新しい要素をdivに追加
-          }
-        </script>
-      -->    
+      <button onclick="addKeywordField()">＋</button>   
       <p><input type="submit" value="検出する" onclick="return detectLines();"></p>
     </div>
     <div id="statusBar" style="display: none;">
       処理中です。しばらくお待ちください...
     </div>
-
-    <!--
-      <script>
-        function detectLines() {
-          // ステータスバーを表示
-          document.getElementById('statusBar').style.display = 'block';
-        
-          // 非同期処理を開始
-          setTimeout(function() {
-            var text = document.getElementById('sequenceA').value;
-            var keywords = Array.from(document.getElementsByName('sequenceB')).map(el => el.value);
-            var lines = text.split('\n');
-            var matchingLines = lines.filter(line => keywords.some(keyword => line.includes(keyword)));
-            document.getElementById('results').innerText = matchingLines.join('\n');     
-            // ステータスバーを非表示にする
-            document.getElementById('statusBar').style.display = 'none';
-          }, 0); // 0ミリ秒後に関数を実行
-          return false;
-          }
-      </script>
-    -->
     
     <div id="results" style="white-space: pre;">
       <!-- 結果を表示する場所 -->
