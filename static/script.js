@@ -52,3 +52,12 @@ function addKeywordField() {
   keywordsDiv.appendChild(newKeywordField); 
 }
 
+// 関数 toggleDetailSettings の定義
+function toggleDetailSettings() {
+  // 詳細設定のdivを取得するコード
+  var detailSettingsDiv = document.getElementById('detailSettings'); 
+  // divの現在の表示状態を取得するコード
+  var currentDisplay = detailSettingsDiv.style.display;
+  // 表示状態を切り替えるコード
+  detailSettingsDiv.style.display = currentDisplay === 'none' ? 'block' : 'none';
+}

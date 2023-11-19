@@ -33,7 +33,21 @@
       <div id="keywords">
         <textarea name="sequenceB" id="sequenceB" rows="1" placeholder="検出したいキーワードを入力してください。"></textarea>
       </div>
-      <button onclick="addKeywordField()">＋</button>   
+      <button onclick="addKeywordField()">＋</button>
+      <p></p>
+      <button id="detailButton" onclick="toggleDetailSettings()">詳細設定</button>
+      <div id="detailSettings" style="display: none;">
+        <input type="checkbox" id="test1" name="test1">
+        <label for="test1">テスト1</label><br>
+        <input type="checkbox" id="test2" name="test2">
+        <label for="test2">テスト2</label><br>
+        <input type="checkbox" id="test3" name="test3">
+        <label for="test3">テスト3</label><br>
+        <input type="checkbox" id="test4" name="test4">
+        <label for="test4">テスト4</label><br>
+        <input type="checkbox" id="test5" name="test5">
+        <label for="test5">テスト5</label><br>
+      </div>
       <p><input type="submit" value="検出する" onclick="return detectLines();"></p>
     </div>
     <div id="statusBar" style="display: none;">
