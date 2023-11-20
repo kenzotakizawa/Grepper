@@ -37,8 +37,12 @@
       <p></p>
       <button id="detailButton" onclick="toggleDetailSettings()">詳細設定</button>
       <div id="detailSettings" style="display: none;">
-        <input type="checkbox" id="test1" name="test1">
-        <label for="test1">テスト1</label><br>
+        <fieldset id="detectionSettings">
+          <legend>検出設定</legend>
+          <label for="beforeLines">隣接する前の行を表示：</label><input type="number" id="beforeLines" name="beforeLines">
+          <label for="afterLines">隣接する後ろの行を表示：</label><input type="number" id="afterLines" name="afterLines">
+          <button id="detectButton" onclick="detectLinesWithRange()">詳細検出</button>
+        </fieldset>
         <input type="checkbox" id="test2" name="test2">
         <label for="test2">テスト2</label><br>
         <input type="checkbox" id="test3" name="test3">

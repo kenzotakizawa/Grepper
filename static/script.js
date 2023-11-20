@@ -61,3 +61,64 @@ function toggleDetailSettings() {
   // 表示状態を切り替えるコード
   detailSettingsDiv.style.display = currentDisplay === 'none' ? 'block' : 'none';
 }
+
+// 関数 detectLinesWithRange の定義
+function detectLinesWithRange() {
+  // beforeLinesとafterLinesの値を取得するコード
+  var beforeLines = parseInt(document.getElementById('beforeLines').value);
+  var afterLines = parseInt(document.getElementById('afterLines').value);
+  
+  // テキストエリアの値を取得するコード
+  var text = document.getElementById('sequenceA').value;
+  // キーワードを取得するコード
+  var keywords = Array.from(document.getElementsByName('sequenceB')).map(el => el.value);
+  // テキストを行に分割するコード
+  var lines = text.split('\n');
+  
+  // キーワードが含まれる行を抽出するコード
+  var matchingLinesIndexes = [];
+  // 各行に対して処理を行うコード
+  lines.forEach((line, index) => {
+    // キーワードが行に含まれているかどうかをチェックするコード
+    if (keywords.some(keyword => line.includes(keyword))) {
+      // キーワードが含まれている行のインデックスを配列に追加するコード
+      matchingLinesIndexes.push(index);
+    }
+  });
+  
+  // 追加機能のコード
+  var extendedLinesIndexes = [];
+  // マッチング行インデックスの各インデックスに対して処理を行う
+  matchingLinesIndexes.forEach(index => {
+    // 開始インデックスと終了インデックスを計算
+    var start = Math.max(0, index - beforeLines);
+    var end = Math.min(lines.length, index + afterLines + 1);
+    // 開始インデックスから終了インデックスまでの各インデックスに対して処理を行う
+    for (var i = start; i < end; i++) {
+      // 拡張行インデックスに現在のインデックスが含まれていない場合、そのインデックスを追加
+      if (!extendedLinesIndexes.includes(i)) {
+        extendedLinesIndexes.unshift(i);
+      }
+    }
+  });
+  
+  // 結果を表示するコード
+  // 拡張行インデックスをソートし、各インデックスに対応する行を取得する
+  var resultLines = extendedLinesIndexes.sort((a, b) => a - b).map(index => {
+    var line = lines[index];
+    // 各キーワードに対して処理を行う
+    keywords.forEach(keyword => {
+      // キーワードをハイライトするためのHTMLタグを作成
+      var highlightedKeyword = '<span style="background-color: #FBB161;">' + keyword + '</span>';
+      // 行内のキーワードをハイライトする
+      line = line.replace(new RegExp(keyword, 'g'), highlightedKeyword);
+    });
+    // ハイライトされた行を返す
+    return line;
+  });
+  // 結果をHTMLに表示する
+  document.getElementById('results').innerHTML = resultLines.join('\n');
+  
+  // ステータスバーを非表示にするコード
+  document.getElementById('statusBar').style.display = 'none';
+}
