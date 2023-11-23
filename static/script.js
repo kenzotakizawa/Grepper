@@ -122,3 +122,46 @@ function detectLinesWithRange() {
   // ステータスバーを非表示にするコード
   document.getElementById('statusBar').style.display = 'none';
 }
+
+function copyUrlWithKeywords() {
+  var keywords = Array.from(document.getElementsByName('sequenceB')).map(el => el.value);
+  var url = window.location.origin + window.location.pathname + '?keywords=' + encodeURIComponent(keywords.join(','));
+  navigator.clipboard.writeText(url).then(function() {
+    showMessage('URLがクリップボードにコピーされました');
+  }, function() {
+    showMessage('URLのコピーに失敗しました');
+  });
+}
+
+function showMessage(message) {
+  var messageElement = document.getElementById('message');
+  messageElement.textContent = message;
+  messageElement.style.display = 'block';
+
+  setTimeout(function() {
+    messageElement.style.display = 'none';
+  }, 3000);
+}
+
+window.onload = function() {
+  var urlParams = new URLSearchParams(window.location.search);
+  var keywords = urlParams.get('keywords');
+  if (keywords) {
+    // 既存のキーワードフィールドを削除
+    document.getElementById('keywords').innerHTML = '';
+    // URLから読み込んだキーワードに基づいて新たなキーワードフィールドを作成
+    keywords.split(',').forEach(function(keyword) {
+      addKeywordField(decodeURIComponent(keyword));
+    });
+  }
+}
+
+function addKeywordField(keyword = '') {
+  var keywordsDiv = document.getElementById('keywords'); 
+  var newKeywordField = document.createElement('textarea'); 
+  newKeywordField.name = 'sequenceB'; 
+  newKeywordField.rows = '1';
+  newKeywordField.placeholder = '検出したいキーワードを入力してください。'; 
+  newKeywordField.value = keyword; // ここでフィールドの値を設定
+  keywordsDiv.appendChild(newKeywordField); 
+}
