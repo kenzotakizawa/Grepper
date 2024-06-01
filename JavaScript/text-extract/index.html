@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>テキスト抽出アプリ</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div>
+    <label for="input-text">入力テキスト:</label>
+    <textarea id="input-text"></textarea>
+  </div>
+  <div>
+    <label for="search-text">引数テキスト:</label>
+    <input type="text" id="search-text">
+  </div>
+  <div>
+    <label for="output-text">出力テキスト:</label>
+    <textarea id="output-text" readonly></textarea>
+  </div>
+  <button id="process-btn">実行</button>
+  <button id="copy-btn">コピー</button>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>先頭行にスペース入れる君</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>先頭行にスペース入れる君</h1>
+    <label for="input-text">入力テキスト:</label>
+    <textarea id="input-text" rows="5" cols="50"></textarea>
+    <br>
+    <label for="output-text">出力テキスト:</label>
+    <textarea id="output-text" rows="5" cols="50" readonly></textarea>
+    <br>
+    <label for="space-type">スペースタイプ:</label>
+    <select id="space-type">
+      <option value="half">半角</option>
+      <option value="full">全角</option>
+    </select>
+    <br>
+    <label for="space-count">スペース数:</label>
+    <select id="space-count">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+    <br>
+    <button id="process-btn">実行ボタン</button>
+    <button id="copy-btn">コピーボタン</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
